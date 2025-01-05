@@ -1,22 +1,21 @@
 <html>
 <script>
-    const N = prompt("Введите число")
+  const N = prompt("Введите число")
 
-    var num_1 = 1
-    var num_2 = 1
-    var i = 2
-    if (isNaN(N) || N < 1) {
-        alert("Введите натуральное число!")
-    }
+  var num_1 = 1
+  var num_2 = 1
+  var i = 2
+  if (isNaN(N) || N < 1) {
+    alert("Введите натуральное число!")
+  }
 
-    while (i < N)
-    {
+  while (i < N) {
     s_fib = num_1 + num_2
     num_1 = num_2
     num_2 = s_fib
     i += 1
-    }
+  }
 
-    alert(num_2)
+  alert(num_2)
 </script>
 </html>

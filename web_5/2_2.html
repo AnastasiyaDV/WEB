@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>2_Б</title>
+  <meta charset="UTF-8">
+  <title>2_Б</title>
 </head>
 <body>
 </body>
-    <script>
-    function RandomFloat(min, max) {
-        return Math.random() * (max - min) + min
+<script>
+  function RandomFloat(min, max) {
+    return Math.random() * (max - min) + min
+  }
+
+  const N = prompt('Введите длину массива')
+  if (isNaN(N) || N < 1) {
+    alert("Введите натуральное число!")
+  }
+  var A = []
+  for (var i = 0; i < N; i++) {
+    A[i] = RandomFloat(-100, 100)
+  }
+  alert(A)
+
+  var res = []
+  for (var i = 0; i < N; i++) {
+    var abs = Math.floor(Math.abs(A[i]));
+    var flag = true;
+
+    for (var digit of ('' + abs)) {
+      if (+digit % 2 === 0) {
+        flag = false;
+        break;
+      }
     }
 
-    const N = prompt('Введите длину массива')
-    if (isNaN(N) || N < 1) {
-        alert("Введите натуральное число!")
+    if (flag === false) {
+      res.push(A[i])
     }
-    var A = []
-    for (var i = 0; i < N; i++) {
-        A[i] = RandomFloat(-100, 100)
-    }
-    alert(A)
+  }
 
-    var res = []
-    for (var i = 0; i<N; i++) {
-        var abs = Math.floor(Math.abs(A[i]));
-        var flag = true;
-
-        for (var digit of (''+abs))
-        {
-            if (+digit % 2 === 0) {
-                flag = false;
-                break;
-            }
-        }
-
-        if (flag === false) {
-            res.push(A[i])
-        }
-    }
-
-    alert(res)
-    </script>
+  alert(res)
+</script>
 </html>
