@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #fff;
+    }
+
+    .calculator {
+      background: #000;
+      padding: 20px;
+    }
+
+    .display {
+      width: 92%;
+      height: 50px;
+      margin-bottom: 20px;
+      text-align: left;
+      padding: 10px;
+      background: #fff;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      font-size: 1rem;
+      padding: 15px;
+      border: none;
+      background: #85b4ff;
+      color: #000;
+    }
+
+      button.operation {
+        background: #7bd17b;
+      }
+
+      button.clear {
+        background: #eb606e;
+      }
+
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" class="display" id="display" disabled>
+    <div class="buttons">
+      <button class="clear" onclick="clearEntry()">CE</button>
+      <button class="clear" onclick="clearAll()">C</button>
+      <button onclick="backspace()">&larr;</button>
+      <button class="operation" onclick="setOperation('/')">/</button>
+
+      <button onclick="appendNumber(7)">7</button>
+      <button onclick="appendNumber(8)">8</button>
+      <button onclick="appendNumber(9)">9</button>
+      <button class="operation" onclick="setOperation('*')">*</button>
+
+      <button onclick="appendNumber(4)">4</button>
+      <button onclick="appendNumber(5)">5</button>
+      <button onclick="appendNumber(6)">6</button>
+      <button class="operation" onclick="setOperation('-')">-</button>
+
+      <button onclick="appendNumber(1)">1</button>
+      <button onclick="appendNumber(2)">2</button>
+      <button onclick="appendNumber(3)">3</button>
+      <button class="operation" onclick="setOperation('+')">+</button>
+
+      <button onclick="appendNumber(0)">0</button>
+      <button onclick="appendNumber('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="toggleSign()">+/-</button>
+
+      <button class="operation" onclick="reciprocal()">1/x</button>
+      <button class="operation" onclick="squareRoot()">√</button>
+      <button class="operation" onclick="percentage()">%</button>
+    </div>
+  </div>
+
+  <script>
+    let currentInput = "";
+    let previousInput = "";
+    let operation = null;
+
+    const display = document.getElementById("display");
+
+    function updateDisplay() {
+      display.value = currentInput || "0";
+    }
+
+    function appendNumber(number) {
+      if (number === '.' && currentInput.includes('.')) return;
+      currentInput += number;
+      updateDisplay();
+    }
+
+    function clearAll() {
+      currentInput = "";
+      previousInput = "";
+      operation = null;
+      updateDisplay();
+    }
+
+    function clearEntry() {
+      currentInput = "";
+      updateDisplay();
+    }
+
+    function backspace() {
+      currentInput = currentInput.slice(0, -1);
+      updateDisplay();
+    }
+
+    function setOperation(op) {
+      if (currentInput === "") return;
+      if (previousInput !== "") calculate();
+      operation = op;
+      previousInput = currentInput;
+      currentInput = "";
+    }
+
+    function calculate() {
+      if (!operation || currentInput === "") return;
+
+      let result;
+      const prev = parseFloat(previousInput);
+      const current = parseFloat(currentInput);
+
+      switch (operation) {
+        case '+':
+          result = prev + current;
+          break;
+        case '-':
+          result = prev - current;
+          break;
+        case '*':
+          result = prev * current;
+          break;
+        case '/':
+          result = current === 0 ? "Error" : prev / current;
+          break;
+        default:
+          return;
+      }
+
+      currentInput = result.toString();
+      operation = null;
+      previousInput = "";
+      updateDisplay();
+    }
+
+    function toggleSign() {
+      if (currentInput === "") return;
+      currentInput = (parseFloat(currentInput) * -1).toString();
+      updateDisplay();
+    }
+
+    function reciprocal() {
+      if (currentInput === "") return;
+      const number = parseFloat(currentInput);
+      currentInput = number === 0 ? "Error" : (1 / number).toString();
+      updateDisplay();
+    }
+
+    function squareRoot() {
+      if (currentInput === "") return;
+      const number = parseFloat(currentInput);
+      currentInput = number < 0 ? "Error" : Math.sqrt(number).toString();
+      updateDisplay();
+    }
+
+    function percentage() {
+      if (currentInput === "") return;
+      const number = parseFloat(currentInput);
+      currentInput = (number / 100).toString();
+      updateDisplay();
+    }
+
+    updateDisplay();
+  </script>
+</body>
+</html>
