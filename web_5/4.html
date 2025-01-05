@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    var str = prompt("Введите строку для обработки: ")
+    var new_str = ''
+    for (var i = 0; i<str.length; i++) {
+      if (i % 2 === 0) {
+        new_str += str[i].toUpperCase()
+      }
+      else {
+        new_str += str[i].toLowerCase()
+      }
+    }
+    alert(new_str)
+</script>
+</html>
