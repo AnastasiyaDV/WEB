@@ -1,5 +1,4 @@
-
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +16,7 @@
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
         }
 
         label {
@@ -44,15 +43,6 @@
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: #218838;
-        }
-
-        @media (max-width: 768px) {
-            label {
-                display: none;
-            }
-        }
     </style>
 </head>
 <body>
@@ -60,48 +50,36 @@
 <div class="form-container">
     <h2>Форма заказа</h2>
     <form action="#" method="post">
-        <!-- Полное имя -->
-        <label for="full-name">Полное имя:</label>
-        <input type="text" id="full-name" name="full-name" placeholder="Введите полное имя" required>
+     
+      <label for="full-name">Полное имя:</label>
+      <input type="text" id="full-name" name="full-name" placeholder="Введите полное имя" required>
 
-        <!-- Почта -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Введите свою почту" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Введите свою почту" required>
 
-        <!-- Номер телефона -->
-        <label for="phone">Номер телефона:</label>
-        <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" required>
+      <label for="phone">Номер телефона:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" required>
 
-        <!-- Адрес доставки -->
-        <label for="address">Адрес доставки:</label>
-        <textarea id="address" name="address" placeholder="Введите адрес доставки" rows="3" required></textarea>
+      <label for="address">Адрес доставки:</label>
+      <textarea id="address" name="address" placeholder="Введите адрес доставки" rows="3" required></textarea>
 
-        <!-- Size -->
-        <label for="size">Размер:</label>
-        <select id="size" name="size" required>
-            <option value="">Выберите размер</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-        </select>
+      <label for="size">Размер:</label>
+      <select id="size" name="size" required>
+        <option value="">Выберите размер</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
 
-        <!-- Способ оплаты -->
-        <label for="payment-method">Способ оплаты:</label>
-        <select id="payment-method" name="payment-method" required>
-            <option value="">Выберите способ оплаты</option>
-            <option value="card">Карта</option>
-            <option value="cod">Наличные</option>
-        </select>
+      <label for="payment-method">Способ оплаты:</label>
+      <select id="payment-method" name="payment-method" required>
+        <option value="">Выберите способ оплаты</option>
+        <option value="card">Карта</option>
+        <option value="cod">Наличные</option>
+      </select>
 
-        <!-- Agreement Checkbox -->
-        <label>
-            <input type="checkbox" name="agreement" required>
-            Я принимаю условия
-        </label>
-
-        <!-- Submit Button -->
-        <button type="submit">Заказать</button>
+      <button type="submit">Заказать</button>
     </form>
 </div>
 

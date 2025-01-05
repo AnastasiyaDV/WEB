@@ -1,0 +1,106 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма заказа</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4682B4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Форма заказа</h2>
+    <form id="order-form">
+
+      <label for="full-name">Полное имя:</label>
+      <input type="text" id="full-name" name="Полное имя" placeholder="Введите полное имя" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="Email" placeholder="Введите вашу почту" required>
+
+      <label for="phone">Номер телефона:</label>
+      <input type="tel" id="phone" name="Номер телефона" placeholder="Введите номер телефона" required>
+
+      <label for="address">Адрес доставки:</label>
+      <textarea id="address" name="Адрес доставки" placeholder="Введите адрес доставки" rows="3" required></textarea>
+
+      <label for="size">Размер:</label>
+      <select id="size" name="Размер" required>
+        <option value="">Выберите размер</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+
+      <label for="payment-method">Способ оплаты:</label>
+      <select id="payment-method" name="Способ оплаты" required>
+        <option value="">Выберите способ оплаты</option>
+        <option value="Карта">Карта</option>
+        <option value="Наличные">Наличные</option>
+      </select>
+
+      <button type="submit">Заказать</button>
+    </form>
+    <div id="output" class="output" style="display: none;">
+    </div>
+  </div>
+  <script>
+    const form = document.getElementById('order-form');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      let outputText = '<h3>Данные заказа:</h3><ul>';
+      formData.forEach((value, key) => {
+        outputText += `<li><strong>${key}:</strong> ${value}</li>`;
+      });
+      outputText += '</ul>';
+
+      output.innerHTML = outputText;
+      output.style.display = 'block';
+
+      form.reset();
+    });</script>
+</body>
+
+</html>
