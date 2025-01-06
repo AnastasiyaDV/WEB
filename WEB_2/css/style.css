@@ -10,20 +10,6 @@ body {
     max-width: 1440px;
 }
 
-.block-1 {
-    width: 100%;
-    border: 15px solid #000;
-    height: 150px;
-    background: #f00;
-}
-
-.block-2 {
-    width: 100%;
-    border: 15px solid #000;
-    height: 300px;
-    background: #f00;
-}
-
 .d-flex {
     display: flex;
     justify-content: space-around;
