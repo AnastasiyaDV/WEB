@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цифры студенческого</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            margin: 0;
+        }
+
+        .number-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .number {
+            display: grid;
+            grid-template-columns: repeat(3, 40px);
+            grid-template-rows: repeat(5, 40px);
+            gap: 5px;
+        }
+
+        .block {
+            width: 40px;
+            height: 40px;
+            background-color: #ffa8b0;
+        }
+
+        .seven .block:nth-child(4),
+        .seven .block:nth-child(5),
+        .seven .block:nth-child(8),
+        .seven .block:nth-child(11),
+        .seven .block:nth-child(7),
+        .seven .block:nth-child(10),
+        .seven .block:nth-child(13),
+        .seven .block:nth-child(14) {
+            background-color: transparent;
+        }
+
+        .three .block:nth-child(4),
+        .three .block:nth-child(5),
+        .three .block:nth-child(7),
+        .three .block:nth-child(10),
+        .three .block:nth-child(11) {
+            background-color: transparent;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="number-container">
+
+    <div class="number seven">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+
+    <div class="number three">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+</div>
+
+</body>
+</html>
